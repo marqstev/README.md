@@ -100,17 +100,20 @@
           <div class="patientCard" v-for="pt in ptList" v-on:click="activePt = pt">
             <span class="lastName">{{ mb.lastName }}</span>,
             <span clas="firstName">{{ mb.firstName }}</span>
-            <span class="birthDate float-right">{{ mb.dob }}</span>
+            <span class="position float-right">{{ mb.position }}</span>
           </div>
         </div>
         <div class="col-4 cardPane cardPaneRight">
           <h3>Member Information</h3>
-          <form v-on:submit.prevent="handleTriageForm">
+          <form v-on:submit.prevent="handleMemberForm">
             <div class="form-group">
-              <label for="mbName">Volunteer Name</label>
+              <label for="mbFirstName">First Name</label>
               <input type="text" v-bind:value="mbFirstName" class="form-control" id="mbFirstName" placeholder="">
             </div>
-            
+            <div class="form-group">
+              <label for="mbLastName">Last Name</label>
+              <input type="text" v-bind:value="mbLastName" class="form-control" id="mbLastName" placeholder="">
+            </div>
             <!--need to change titles/values for inputs-->
             <div class="form-group">
               <label for="visitSymptoms">DOB</label>
@@ -150,13 +153,13 @@
             </div>
             <div class="form-group">
               <label for="visitSymptoms">Start Date</label>
-              <input type="text" v-model="newPtForm.dob" class="form-control" id="newPtDob" placeholder="2020-01-02">
+              <input type="text" v-model="newPtForm.dob" class="form-control" id="newPtDob" placeholder="">
             </div>
             <div class="form-group">
               <label for="visitSymptoms">Position</label>
               <input type="text" class="form-control" id="visitDate" placeholder="">
             </div>
-            <div class="form-group">
+            <div class="form-grou">
               <label for="visitSymptoms">Radio Number</label>
               <input type="text" class="form-control" id="visitDate" placeholder="">
             </div>
