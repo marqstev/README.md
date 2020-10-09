@@ -43,54 +43,52 @@
             <h3>Create New Volunteer Record</h3>
 
             <div class="form-group">
-            <label for="newPtFirstName">First Name</label>
-            <input type="text" v-model="newPtForm.firstName" class="form-control" id="newPtFirstName" placeholder="Jane">
+            <label for="newMbFirstName">First Name</label>
+            <input type="text" v-model="newMbForm.firstName" class="form-control" id="newMbFirstName" placeholder="John">
           </div>
           <div class="form-group">
-            <label for="newPtLastName">Last Name</label>
-            <input type="text" v-model="newPtForm.lastName" class="form-control" id="newPtLastName" placeholder="Doe">
+            <label for="newMbLastName">Last Name</label>
+            <input type="text" v-model="newMbForm.lastName" class="form-control" id="newMbLastName" placeholder="Doe">
           </div>
           <div class="form-group">
-            <label for="newPtDob">DOB</label>
-            <input type="text" v-model="newPtForm.dob" class="form-control" id="newPtDob" placeholder="2020-01-02">
+            <label for="newMbDob">DOB</label>
+            <input type="text" v-model="newMbForm.Dob" class="form-control" id="newMbDob" placeholder="2020-01-02">
           </div>
           <div class="form-group">
-            <label for="newPtSexAtBirth">Gender</label>
-            <select class="form-control" v-model="newPtForm.sexAtBirth" id="newPtSexAtBirth">
+            <label for="newPtGender">Gender</label>
+            <select class="form-control" v-model="newMbForm.gender" id="newMbGender">
               <option value="M">Male</option>
               <option value="F">Female</option>
               <option value="O">Other/Unknown</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="newPtDob">Address</label>
-            <input type="text" v-model="newPtForm.dob" class="form-control" id="newPtDob" placeholder="2020-01-02">
+            <label for="newMbAddress">Address</label>
+            <input type="text" v-model="newMbForm.address" class="form-control" id="newMbAddress" placeholder="1234 Park Road">
           </div>
           <div class="form-group">
-            <label for="newPtDob">City</label>
-            <input type="text" v-model="newPtForm.dob" class="form-control" id="newPtDob" placeholder="2020-01-02">
+            <label for="newMbCity">City</label>
+            <input type="text" v-model="newMbForm.city" class="form-control" id="newMbCity" placeholder="Atlanta">
           </div>
           <div class="form-group">
-            <label for="newPtDob">State</label>
-            <input type="text" v-model="newPtForm.dob" class="form-control" id="newPtDob" placeholder="2020-01-02">
+            <label for="newMbState">State</label>
+            <input type="text" v-model="newMbForm.state" class="form-control" id="newMbState" placeholder="Georgia">
           </div>
           <div class="form-group">
-            <label for="newPtDob">Zip Code</label>
-            <input type="text" v-model="newPtForm.dob" class="form-control" id="newPtDob" placeholder="2020-01-02">
+            <label for="newMbZip">Zip Code</label>
+            <input type="text" v-model="newMbForm.zip" class="form-control" id="newMbZip" placeholder="30301">
           </div>
           <div class="form-group">
-            <label for="newPtDob">Email</label>
-            <input type="text" v-model="newPtForm.dob" class="form-control" id="newPtDob" placeholder="2020-01-02">
+            <label for="newMbEmail">Email</label>
+            <input type="text" v-model="newMbForm.email" class="form-control" id="newMbEmail" placeholder="jdoe@email.com">
           </div>
           <div class="form-group">
-            <label for="newPtDob">Primary Phone Number</label>
-            <input type="text" v-model="newPtForm.dob" class="form-control" id="newPtDob" placeholder="2020-01-02">
+            <label for="newMbPhone">Primary Phone Number</label>
+            <input type="text" v-model="newMbForm.phone" class="form-control" id="newMbPhone" placeholder="(888)-888-8888">
           </div>
           <button type="submit" class="btn btn-primary">Create</button>
 
           </form>
-
-
 
           <!-- <button v-on:click="yell()">Click Me!</button> -->
 
@@ -100,21 +98,23 @@
           <h3>List of All Volunteers</h3>
 
           <div class="patientCard" v-for="pt in ptList" v-on:click="activePt = pt">
-            <span class="lastName">{{ pt.lastName }}</span>,
-            <span clas="firstName">{{ pt.firstName }}</span>
-            <span class="birthDate float-right">{{ pt.dob }}</span>
+            <span class="lastName">{{ mb.lastName }}</span>,
+            <span clas="firstName">{{ mb.firstName }}</span>
+            <span class="birthDate float-right">{{ mb.dob }}</span>
           </div>
         </div>
         <div class="col-4 cardPane cardPaneRight">
           <h3>Member Information</h3>
           <form v-on:submit.prevent="handleTriageForm">
             <div class="form-group">
-              <label for="ptName">Volunteer Name</label>
-              <input class="form-control" id="ptName" v-bind:value="activePtName" readonly>
+              <label for="mbName">Volunteer Name</label>
+              <input type="text" v-bind:value="mbFirstName" class="form-control" id="mbFirstName" placeholder="">
             </div>
+            
+            <!--need to change titles/values for inputs-->
             <div class="form-group">
               <label for="visitSymptoms">DOB</label>
-              <input type="text" v-model="newPtForm.dob" class="form-control" id="newPtDob" placeholder="2020-01-02">
+              <input type="text" v-model="newPtForm.dob" class="form-control" id="newPtDob" placeholder="">
             </div>
             <div class="form-group">
               <label for="visitSymptoms">Gender</label>
