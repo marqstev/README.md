@@ -99,7 +99,7 @@
           <!-- <button v-on:click="yell()">Click Me!</button> -->
 
         </div>
-
+        <!-- middle column -->
         <div class="col-4">
           <h3>List of All Volunteers</h3>
 
@@ -109,6 +109,9 @@
             <span class="position float-right">{{ mb.position }}</span>
           </div>
         </div>
+
+        <!-- right column -->
+
         <div class="col-4 cardPane cardPaneRight">
           <h3>Member Information</h3>
           <form v-on:submit.prevent="handleMemberForm">
@@ -165,7 +168,7 @@
               <label for="visitSymptoms">Position</label>
               <input type="text" class="form-control" id="visitDate" placeholder="">
             </div>
-            <div class="form-grou">
+            <div class="form-group">
               <label for="visitSymptoms">Radio Number</label>
               <input type="text" class="form-control" id="visitDate" placeholder="">
             </div>
