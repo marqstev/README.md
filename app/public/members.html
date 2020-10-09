@@ -41,6 +41,36 @@
     </nav><br>
   
 
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="certifications.html">Certifications</a>
+                </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="members.html">Members</a>
+              </li>
+            </ul>
+            <form class="form-inline my-3 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-3 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+        </nav><br>
 
     <div class="container-fluid">
       <div class="row" id="triagePage">
@@ -99,7 +129,7 @@
           <!-- <button v-on:click="yell()">Click Me!</button> -->
 
         </div>
-
+        <!-- middle column -->
         <div class="col-4">
           <h3>List of All Volunteers</h3>
 
@@ -109,6 +139,9 @@
             <span class="position float-right">{{ mb.position }}</span>
           </div>
         </div>
+
+        <!-- right column -->
+
         <div class="col-4 cardPane cardPaneRight">
           <h3>Member Information</h3>
           <form v-on:submit.prevent="handleMemberForm">
@@ -165,7 +198,7 @@
               <label for="visitSymptoms">Position</label>
               <input type="text" class="form-control" id="visitDate" placeholder="">
             </div>
-            <div class="form-grou">
+            <div class="form-group">
               <label for="visitSymptoms">Radio Number</label>
               <input type="text" class="form-control" id="visitDate" placeholder="">
             </div>
