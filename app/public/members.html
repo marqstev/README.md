@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- my custom CSS goes here -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <title>OFCR Members</title>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="certifications.html">Certifications</a>
+            </li>
+        
+          <li class="nav-item">
+            <a class="nav-link" href="members.html">Members</a>
+          </li>
+        </ul>
+        <form class="form-inline my-3 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-3 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav><br>
+  
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="certifications.html">Certifications</a>
+                </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="members.html">Members</a>
+              </li>
+            </ul>
+            <form class="form-inline my-3 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-3 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+        </nav><br>
+
+    <div class="container-fluid">
+      <div class="row" id="triagePage">
+        <div id="cardPaneLeft" class="col-4 cardPane cardPaneLeft">
+          <form method="post" v-on:submit.prevent="handleNewPtForm">
+            <h3>Create New Volunteer Record</h3>
+
+            <div class="form-group">
+            <label for="newMbFirstName">First Name</label>
+            <input type="text" v-model="newMbForm.firstName" class="form-control" id="newMbFirstName" placeholder="John">
+          </div>
+          <div class="form-group">
+            <label for="newMbLastName">Last Name</label>
+            <input type="text" v-model="newMbForm.lastName" class="form-control" id="newMbLastName" placeholder="Doe">
+          </div>
+          <div class="form-group">
+            <label for="newMbDob">DOB</label>
+            <input type="text" v-model="newMbForm.Dob" class="form-control" id="newMbDob" placeholder="2020-01-02">
+          </div>
+          <div class="form-group">
+            <label for="newPtGender">Gender</label>
+            <select class="form-control" v-model="newMbForm.gender" id="newMbGender">
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+              <option value="O">Other/Unknown</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="newMbAddress">Address</label>
+            <input type="text" v-model="newMbForm.address" class="form-control" id="newMbAddress" placeholder="1234 Park Road">
+          </div>
+          <div class="form-group">
+            <label for="newMbCity">City</label>
+            <input type="text" v-model="newMbForm.city" class="form-control" id="newMbCity" placeholder="Atlanta">
+          </div>
+          <div class="form-group">
+            <label for="newMbState">State</label>
+            <input type="text" v-model="newMbForm.state" class="form-control" id="newMbState" placeholder="Georgia">
+          </div>
+          <div class="form-group">
+            <label for="newMbZip">Zip Code</label>
+            <input type="text" v-model="newMbForm.zip" class="form-control" id="newMbZip" placeholder="30301">
+          </div>
+          <div class="form-group">
+            <label for="newMbEmail">Email</label>
+            <input type="text" v-model="newMbForm.email" class="form-control" id="newMbEmail" placeholder="jdoe@email.com">
+          </div>
+          <div class="form-group">
+            <label for="newMbPhone">Primary Phone Number</label>
+            <input type="text" v-model="newMbForm.phone" class="form-control" id="newMbPhone" placeholder="(888)-888-8888">
+          </div>
+          <button type="submit" class="btn btn-primary">Create</button>
+
+          </form>
+
+          <!-- <button v-on:click="yell()">Click Me!</button> -->
+
+        </div>
+        <!-- middle column -->
+        <div class="col-4">
+          <h3>List of All Volunteers</h3>
+
+          <div class="patientCard" v-for="pt in ptList" v-on:click="activePt = pt">
+            <span class="lastName">{{ mb.lastName }}</span>,
+            <span clas="firstName">{{ mb.firstName }}</span>
+            <span class="position float-right">{{ mb.position }}</span>
+          </div>
+        </div>
+
+        <!-- right column -->
+
+        <div class="col-4 cardPane cardPaneRight">
+          <h3>Member Information</h3>
+          <form v-on:submit.prevent="handleMemberForm">
+            <div class="form-group">
+              <label for="mbFirstName">First Name</label>
+              <input type="text" v-bind:value="mbFirstName" class="form-control" id="mbFirstName" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="mbLastName">Last Name</label>
+              <input type="text" v-bind:value="mbLastName" class="form-control" id="mbLastName" placeholder="">
+            </div>
+            <!--need to change titles/values for inputs-->
+            <div class="form-group">
+              <label for="visitSymptoms">DOB</label>
+              <input type="text" v-model="newPtForm.dob" class="form-control" id="newPtDob" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="visitSymptoms">Gender</label>
+              <select class="form-control" v-model="newPtForm.sexAtBirth" id="newPtSexAtBirth">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="O">Other/Unknown</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="visitDate">Address</label>
+              <input type="text" class="form-control" id="visitDate" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="visitDate">City</label>
+              <input type="text" class="form-control" id="visitDate" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="visitDate">State</label>
+              <input type="text" class="form-control" id="visitDate" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="visitSymptoms">Zip Code</label>
+              <input type="text" class="form-control" id="visitDate" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="visitSymptoms">Email</label>
+              <input type="text" class="form-control" id="visitDate" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="visitSymptoms">Primary Phone Number</label>
+              <input type="text" class="form-control" id="visitDate" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="visitSymptoms">Start Date</label>
+              <input type="text" v-model="newPtForm.dob" class="form-control" id="newPtDob" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="visitSymptoms">Position</label>
+              <input type="text" class="form-control" id="visitDate" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="visitSymptoms">Radio Number</label>
+              <input type="text" class="form-control" id="visitDate" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="visitSymptoms">Station Number</label>
+              <input type="text" class="form-control" id="visitDate" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="visitSymptoms">Active Volunteer?</label>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  Yes
+                </label>
+              </div>
+            </div>
+          <button type="submit" class="btn btn-primary">Update Record</button>
+          <button type="submit" class="btn btn-primary">Delete Record</button>
+        </form>
+        </div>
+      </div>
+    </div>
+    <!-- END content -->
+
+    <!-- Footer? Insert here -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/index.app.js"></script>
+  </body>
+</html>
