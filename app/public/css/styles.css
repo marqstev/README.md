@@ -3,9 +3,10 @@
     background-color:orangered;
     margin-left: -16px;
     margin-right: -15px;
-    margin-top: -13px;
+    margin-top: -10px;
     color: whitesmoke;
-    
+    padding: 10px;
+
 }
 
 h1 {
@@ -13,11 +14,12 @@ h1 {
     color: orangered;
     background-color:black;
     font-size: xx-large;
+    padding: 10px;
 }
 
 body{
     background-color: whitesmoke;
- 
+
 }
 
 
@@ -29,4 +31,12 @@ body{
   background-color: orangered;
   color: white;
   text-align: center;
+}
+
+.memberCard {
+  margin: 4px;
+  padding: 4px 8px;
+  border: 1px solid darkred;
+  border-radius: 5px;
+  background-color: white;
 }

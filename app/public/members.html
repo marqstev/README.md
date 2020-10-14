@@ -11,72 +11,42 @@
     <link rel="stylesheet" href="css/styles.css">
 
     <title>OFCR Members</title>
+  </head>
+  <h1>Oconee County Fire Rescue</h1>
+  <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.html">Login</a>
+        <a class="navbar-brand"></a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+          <div class="collapse navbar-collapse navbar" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Home</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+              </li>
             <li class="nav-item">
               <a class="nav-link" href="certifications.html">Certifications</a>
             </li>
-        
-          <li class="nav-item">
-            <a class="nav-link" href="members.html">Members</a>
-          </li>
-        </ul>
-        <form class="form-inline my-3 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-3 my-sm-0" type="submit">Search</button>
-        </form>
-      </div>
-    </nav><br>
-  
-
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand"></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="login.html">Login</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="certifications.html">Certifications</a>
-                </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="members.html">Members</a>
-              </li>
-            </ul>
-            <form class="form-inline my-3 my-lg-0">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-3 my-sm-0" type="submit">Search</button>
-            </form>
-          </div>
+            <li class="nav-item">
+              <a class="nav-link" href="members.html">Members</a>
+            </li>
+          </ul>
+          <form class="form-inline my-3 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-3 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
         </nav><br>
 
     <div class="container-fluid">
-      <div class="row" id="triagePage">
+      <div class="row" id="memberPage">
         <div id="cardPaneLeft" class="col-4 cardPane cardPaneLeft">
           <form method="post" v-on:submit.prevent="handleNewPtForm">
-            <h3>Create New Volunteer Record</h3>
+            <h3>Create New Member Record</h3>
 
             <div class="form-group">
             <label for="newMbFirstName">First Name</label>
@@ -95,7 +65,7 @@
             <select class="form-control" v-model="newMbForm.gender" id="newMbGender">
               <option value="M">Male</option>
               <option value="F">Female</option>
-              <option value="O">Other/Unknown</option>
+              <option value="O">Other</option>
             </select>
           </div>
           <div class="form-group">
@@ -131,9 +101,9 @@
         </div>
         <!-- middle column -->
         <div class="col-4">
-          <h3>List of All Volunteers</h3>
+          <h3>List of All Members</h3>
 
-          <div class="patientCard" v-for="pt in ptList" v-on:click="activePt = pt">
+          <div class="memberCard" v-for="mb in mbList" v-on:click="activeMb = mb">
             <span class="lastName">{{ mb.lastName }}</span>,
             <span clas="firstName">{{ mb.firstName }}</span>
             <span class="position float-right">{{ mb.position }}</span>
@@ -156,11 +126,11 @@
             <!--need to change titles/values for inputs-->
             <div class="form-group">
               <label for="visitSymptoms">DOB</label>
-              <input type="text" v-model="newPtForm.dob" class="form-control" id="newPtDob" placeholder="">
+              <input type="text" v-model="newPtForm.dob" class="form-control" id="mbDob" placeholder="">
             </div>
             <div class="form-group">
               <label for="visitSymptoms">Gender</label>
-              <select class="form-control" v-model="newPtForm.sexAtBirth" id="newPtSexAtBirth">
+              <select class="form-control" v-model="newPtForm.sexAtBirth" id="mbGender">
                 <option value="M">Male</option>
                 <option value="F">Female</option>
                 <option value="O">Other/Unknown</option>
@@ -168,48 +138,48 @@
             </div>
             <div class="form-group">
               <label for="visitDate">Address</label>
-              <input type="text" class="form-control" id="visitDate" placeholder="">
+              <input type="text" class="form-control" id="mbAddress" placeholder="">
             </div>
             <div class="form-group">
               <label for="visitDate">City</label>
-              <input type="text" class="form-control" id="visitDate" placeholder="">
+              <input type="text" class="form-control" id="mbCity" placeholder="">
             </div>
             <div class="form-group">
               <label for="visitDate">State</label>
-              <input type="text" class="form-control" id="visitDate" placeholder="">
+              <input type="text" class="form-control" id="mbState" placeholder="">
             </div>
             <div class="form-group">
               <label for="visitSymptoms">Zip Code</label>
-              <input type="text" class="form-control" id="visitDate" placeholder="">
+              <input type="text" class="form-control" id="mbZip" placeholder="">
             </div>
             <div class="form-group">
               <label for="visitSymptoms">Email</label>
-              <input type="text" class="form-control" id="visitDate" placeholder="">
+              <input type="text" class="form-control" id="mbEmail" placeholder="">
             </div>
             <div class="form-group">
               <label for="visitSymptoms">Primary Phone Number</label>
-              <input type="text" class="form-control" id="visitDate" placeholder="">
+              <input type="text" class="form-control" id="mbPhone" placeholder="">
             </div>
             <div class="form-group">
               <label for="visitSymptoms">Start Date</label>
-              <input type="text" v-model="newPtForm.dob" class="form-control" id="newPtDob" placeholder="">
+              <input type="text" v-model="newPtForm.dob" class="form-control" id="mbStartDate" placeholder="">
             </div>
             <div class="form-group">
               <label for="visitSymptoms">Position</label>
-              <input type="text" class="form-control" id="visitDate" placeholder="">
+              <input type="text" class="form-control" id="mbPosition" placeholder="">
             </div>
             <div class="form-group">
               <label for="visitSymptoms">Radio Number</label>
-              <input type="text" class="form-control" id="visitDate" placeholder="">
+              <input type="text" class="form-control" id="mbRadio" placeholder="">
             </div>
             <div class="form-group">
               <label for="visitSymptoms">Station Number</label>
-              <input type="text" class="form-control" id="visitDate" placeholder="">
+              <input type="text" class="form-control" id="mbStation" placeholder="">
             </div>
             <div class="form-group">
               <label for="visitSymptoms">Active Volunteer?</label>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <input class="form-check-input" type="checkbox" value="" id="mbStatus">
                 <label class="form-check-label" for="defaultCheck1">
                   Yes
                 </label>
