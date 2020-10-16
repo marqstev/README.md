@@ -1,0 +1,43 @@
+.navbar {
+    overflow: hidden;
+    background-color:orangered;
+    margin-left: -26px;
+    margin-right: -15px;
+    margin-top: -10px;
+    color: whitesmoke;
+    padding: 10px;
+
+}
+
+.site {
+    text-align: center;
+    color: orangered;
+    background-color:black;
+    font-size: xx-large;
+    padding: 20px;
+    margin: -15px;
+}
+
+body{
+    background-color: whitesmoke;
+    margin: 15px;
+}
+
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: orangered;
+  color: white;
+  text-align: center;
+}
+
+.memberCard {
+  margin: 4px;
+  padding: 4px 8px;
+  border: 1px solid darkred;
+  border-radius: 5px;
+  background-color: white;
+}
