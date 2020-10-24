@@ -18,7 +18,7 @@ if (isset($_GET['memberId'])) {
 $stmt = $db->prepare($sql);
 $stmt->execute($vars);
 
-$certified= $stmt->fetchAll();
+$certfied= $stmt->fetchAll();
 
 // Step 3: Convert to JSON
 $json = json_encode($certfied, JSON_PRETTY_PRINT);
