@@ -103,12 +103,15 @@
           <h3>List of All Members</h3>
 
           <div class="memberCard" v-for="mb in mbList" v-on:click="activeMb = mb">
-            <span class="lastName">Member Id: {{ mb.memberId }}</span>,
-            <span class="lastName">{{ mb.lastName }}</span>,
-            <span clas="firstName">{{ mb.firstName }}</span>
-            <span class="position float-right">{{ mb.position }}</span>
+            <span class="memberId">{{member.memberId}}</span>
+            <span class="firstName">{{member.firstName}}</span>
+            <span class="lastName">{{member.lastName}}</span>
+            <span class="stationNumber">{{member.stationNumber}}</span>
+            <span class="radioNumber">{{member.radioNumber}}</span>
+            <span class="email">{{member.email}}</span>
           </div>
         </div>
+      </div>
 
         <!-- right column -->
 
@@ -209,6 +212,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="js/index.app.js"></script>
+    <script src="js/members.app.js"></script>
   </body>
 </html>
