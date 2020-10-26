@@ -41,10 +41,10 @@
         </div>
         </nav><br>
 
-    <div class="container-fluid">
-      <div class="row" id="memberPage">
+    <div class="container-fluid" id="memberPage">
+
         <div id="cardPaneLeft" class="col-4 cardPane cardPaneLeft">
-          <form method="post" v-on:submit.prevent="handleNewPtForm">
+          <form id="newMbForm" method="post" v-on:submit.prevent="handleNewMbForm">
             <h3>Create New Member Record</h3>
 
             <div class="form-group">
@@ -57,7 +57,7 @@
           </div>
           <div class="form-group">
             <label for="newMbDob">DOB</label>
-            <input type="text" v-model="newMbForm.Dob" class="form-control" id="newMbDob" placeholder="2020-01-02">
+            <input type="text" v-model="newMbForm.dob" class="form-control" id="newMbDob" placeholder="2020-01-02">
           </div>
           <div class="form-group">
             <label for="newPtGender">Gender</label>
@@ -81,7 +81,7 @@
           </div>
           <div class="form-group">
             <label for="newMbZip">Zip Code</label>
-            <input type="text" v-model="newMbForm.zip" class="form-control" id="newMbZip" placeholder="30301">
+            <input type="text" v-model="newMbForm.zipCode" class="form-control" id="newMbZip" placeholder="30301">
           </div>
           <div class="form-group">
             <label for="newMbEmail">Email</label>
@@ -89,9 +89,9 @@
           </div>
           <div class="form-group">
             <label for="newMbPhone">Primary Phone Number</label>
-            <input type="text" v-model="newMbForm.phone" class="form-control" id="newMbPhone" placeholder="(888)-888-8888">
+            <input type="text" v-model="newMbForm.primaryPhoneNumber" class="form-control" id="newMbPhone" placeholder="(888)-888-8888">
           </div>
-          <button type="submit" class="btn btn-primary">Create</button>
+          <button type="submit" class="btn btn-primary" id="createNewMember">Create</button>
 
           </form>
 
@@ -102,13 +102,16 @@
         <div class="col-4">
           <h3>List of All Members</h3>
 
-          <div class="memberCard" v-for="mb in mbList" v-on:click="activeMb = mb">
-            <span class="lastName">Member Id: {{ mb.memberId }}</span>,
-            <span class="lastName">{{ mb.lastName }}</span>,
-            <span clas="firstName">{{ mb.firstName }}</span>
-            <span class="position float-right">{{ mb.position }}</span>
+          <div class="memberCard" v-for="member in memberList" v-on:click="activeMb = member">
+            <span class="memberId">{{member.memberId}}</span>
+            <span class="firstName">{{member.firstName}}</span>
+            <span class="lastName">{{member.lastName}}</span>
+            <span class="stationNumber">{{member.stationNumber}}</span>
+            <span class="radioNumber">{{member.radioNumber}}</span>
+            <span class="email">{{member.email}}</span>
           </div>
         </div>
+      </div>
 
         <!-- right column -->
 
