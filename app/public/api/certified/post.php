@@ -26,3 +26,4 @@ $pk = $db->lastInsertId();  // https://www.php.net/manual/en/pdo.lastinsertid.ph
 // just in case the data changed by entering it
 header('HTTP/1.1 303 See Other');
 header('Location: ../certified/?certificationId=' .  $pk');
+
