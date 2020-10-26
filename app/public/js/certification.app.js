@@ -18,7 +18,7 @@ var app = new Vue({
 
     methods: {
       fetchUser(){
-        fetch('api/certfied/')
+        fetch('api/certified/')
         .then(response => response.json())
         .then(json => {
           this.existingcertifications=json;
@@ -27,7 +27,7 @@ var app = new Vue({
       },
 
       CreateUser(){
-        fetch('api/certfied/post.php', {
+        fetch('api/certified/post.php', {
           method:'POST',
           body: JSON.stringify(this.newcertifications),
           headers: {
