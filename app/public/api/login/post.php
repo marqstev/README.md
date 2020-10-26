@@ -14,8 +14,8 @@ $stmt = $db->prepare(
 $stmt->execute([
   $_POST['loginEmail'],
   $_POST['loginPassword']
- 
-  
+
+
 ]);
 
 // If needed, get auto-generated PK from DB
@@ -25,4 +25,4 @@ $stmt->execute([
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
 header('HTTP/1.1 303 See Other');
-header('Location: ../login/?certificationId=' .  $_POST['certificationId');
+header('Location: ../login/');
