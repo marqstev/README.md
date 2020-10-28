@@ -27,7 +27,7 @@ $stmt->execute([
   $_POST['officialPosition'],
   $_POST['radioNumber'],
   $_POST['stationNumber'],
-  $_POST['isActive'],
+  $_POST['isActive']
 ]);
 
 // If needed, get auto-generated PK from DB

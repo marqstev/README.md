@@ -14,7 +14,7 @@ $stmt = $db->prepare(
 $stmt->execute([,
   $_POST['title'],
   $_POST['expirationDate'],
-  $_POST['certifyingAgency'],
+  $_POST['certifyingAgency']
 
 ]);
 
