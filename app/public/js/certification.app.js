@@ -4,14 +4,14 @@ var app = new Vue({
     existingcertifications: [{
       certificationId: '',
       title: '',
-      expirationDate: '',
+      experationDate: '',
       certifyingAgency: ''
     }],
 
     newcertifications: {
       certificationId: '',
       title: '',
-      expirationDate: '',
+      experationDate: '',
       certifyingAgency: ''
     }
   },
@@ -47,7 +47,7 @@ var app = new Vue({
         return {
           certificationId: '',
           title: '',
-          expirationDate: '',
+          experationDate: '',
           certifyingAgency: ''
         }
       }
