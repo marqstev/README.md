@@ -1,5 +1,5 @@
 var app = new Vue({
-  el: '#certifications',
+  el: '#certifications1',
   data: {
     existingcertifications: [{
       certificationId: '',
@@ -18,7 +18,7 @@ var app = new Vue({
 
     methods: {
       fetchUser(){
-        fetch('api/certified/')
+        fetch('api/certified/certifications.php')
         .then(response => response.json())
         .then(json => {
           this.existingcertifications=json;

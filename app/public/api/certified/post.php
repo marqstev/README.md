@@ -15,7 +15,6 @@ $stmt->execute([
   $_POST['title'],
   $_POST['experationDate'],
   $_POST['certifyingAgency']
-
 ]);
 
 
@@ -26,4 +25,4 @@ $pk = $db->lastInsertId();  // https://www.php.net/manual/en/pdo.lastinsertid.ph
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
 header('HTTP/1.1 303 See Other');
-header('Location: ../certified/?certificationId=' .  $pk);
+header('Location: ../certified/certifications.php?certificationId=' .  $pk);

@@ -16,7 +16,7 @@ if (isset($_GET['certificationId'])) {
 }
 
 $stmt = $db->prepare($sql);
-$stmt->execute();
+$stmt->execute($vars);
 
 $certified= $stmt->fetchAll();
 
