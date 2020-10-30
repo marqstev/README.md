@@ -42,8 +42,8 @@
         </nav><br>
 
     <div class="container-fluid" id="memberPage">
-
-        <div id="cardPaneLeft" class="col-4 cardPane cardPaneLeft">
+      <div class="row">
+        <div id="cardPaneLeft" class="col-6 cardPane cardPaneLeft">
           <form id="newMbForm" method="post" v-on:submit.prevent="handleNewMbForm">
             <h3>Create New Member Record</h3>
 
@@ -60,7 +60,7 @@
             <input type="text" v-model="newMbForm.dob" class="form-control" id="newMbDob" placeholder="2020-01-02">
           </div>
           <div class="form-group">
-            <label for="newPtGender">Gender</label>
+            <label for="newMbGender">Gender</label>
             <select class="form-control" v-model="newMbForm.gender" id="newMbGender">
               <option value="M">Male</option>
               <option value="F">Female</option>
@@ -91,109 +91,70 @@
             <label for="newMbPhone">Primary Phone Number</label>
             <input type="text" v-model="newMbForm.primaryPhoneNumber" class="form-control" id="newMbPhone" placeholder="(888)-888-8888">
           </div>
+          <div class="form-group">
+            <label for="visitSymptoms">Start Date</label>
+            <input type="text" class="form-control" id="mbStartDate" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="visitSymptoms">Position</label>
+            <input type="text" class="form-control" id="mbPosition" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="visitSymptoms">Radio Number</label>
+            <input type="text" class="form-control" id="mbRadio" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="visitSymptoms">Station Number</label>
+            <input type="text" class="form-control" id="mbStation" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="visitSymptoms">Active Volunteer?</label>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="mbStatus">
+              <label class="form-check-label" for="defaultCheck1">
+                Yes
+              </label>
+            </div>
+          </div>
           <button type="submit" class="btn btn-primary" id="createNewMember">Create</button>
+          <button type="submit" class="btn btn-primary" id="updateMember">Update Record</button>
+          <button type="submit" class="btn btn-primary" id="deleteMember">Delete Record</button>
 
           </form>
 
           <!-- <button v-on:click="yell()">Click Me!</button> -->
-
+            </div>
         </div>
         <!-- middle column -->
-        <div class="col-4">
+        <div class="row">
           <h3>List of All Members</h3>
 
-          <div class="memberCard" v-for="member in memberList" v-on:click="activeMb = member">
-            <span class="memberId">{{member.memberId}}</span>
-            <span class="firstName">{{member.firstName}}</span>
-            <span class="lastName">{{member.lastName}}</span>
-            <span class="stationNumber">{{member.stationNumber}}</span>
-            <span class="radioNumber">{{member.radioNumber}}</span>
-            <span class="email">{{member.email}}</span>
+          <div v-on:click="activeMb = member">
+            <table class="table" id="memberTable">
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">First Name</th>
+                  <th scope="col">Last Name</th>
+                  <th scope="col">Station Number</th>
+                  <th scope="col">Radio Number</th>
+                  <th scope="col">Radio Number</th>
+                </tr>
+              </thead>
+              <tbody class="members" id="memberTableBody">
+                <tr v-for="member in memberList">
+                <td class="memberId">{{member.memberId}}</td>
+                <td class="firstName">{{member.firstName}}</td>
+                <td class="lastName">{{member.lastName}}</td>
+                <td class="stationNumber">{{member.stationNumber}}</td>
+                <td class="radioNumber">{{member.radioNumber}}</td>
+                <td class="email">{{member.email}}</td>
+              </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
-
-        <!-- right column -->
-
-        <div class="col-4 cardPane cardPaneRight">
-          <h3>Member Information</h3>
-          <form v-on:submit.prevent="handleMemberForm">
-            <div class="form-group">
-              <label for="mbFirstName">First Name</label>
-              <input type="text" v-bind:value="mbFirstName" class="form-control" id="mbFirstName" placeholder="">
-            </div>
-            <div class="form-group">
-              <label for="mbLastName">Last Name</label>
-              <input type="text" v-bind:value="mbLastName" class="form-control" id="mbLastName" placeholder="">
-            </div>
-            <!--need to change titles/values for inputs-->
-            <div class="form-group">
-              <label for="visitSymptoms">DOB</label>
-              <input type="text" v-model="newPtForm.dob" class="form-control" id="mbDob" placeholder="">
-            </div>
-            <div class="form-group">
-              <label for="visitSymptoms">Gender</label>
-              <select class="form-control" v-model="newPtForm.sexAtBirth" id="mbGender">
-                <option value="M">Male</option>
-                <option value="F">Female</option>
-                <option value="O">Other/Unknown</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="visitDate">Address</label>
-              <input type="text" class="form-control" id="mbAddress" placeholder="">
-            </div>
-            <div class="form-group">
-              <label for="visitDate">City</label>
-              <input type="text" class="form-control" id="mbCity" placeholder="">
-            </div>
-            <div class="form-group">
-              <label for="visitDate">State</label>
-              <input type="text" class="form-control" id="mbState" placeholder="">
-            </div>
-            <div class="form-group">
-              <label for="visitSymptoms">Zip Code</label>
-              <input type="text" class="form-control" id="mbZip" placeholder="">
-            </div>
-            <div class="form-group">
-              <label for="visitSymptoms">Email</label>
-              <input type="text" class="form-control" id="mbEmail" placeholder="">
-            </div>
-            <div class="form-group">
-              <label for="visitSymptoms">Primary Phone Number</label>
-              <input type="text" class="form-control" id="mbPhone" placeholder="">
-            </div>
-            <div class="form-group">
-              <label for="visitSymptoms">Start Date</label>
-              <input type="text" v-model="newPtForm.dob" class="form-control" id="mbStartDate" placeholder="">
-            </div>
-            <div class="form-group">
-              <label for="visitSymptoms">Position</label>
-              <input type="text" class="form-control" id="mbPosition" placeholder="">
-            </div>
-            <div class="form-group">
-              <label for="visitSymptoms">Radio Number</label>
-              <input type="text" class="form-control" id="mbRadio" placeholder="">
-            </div>
-            <div class="form-group">
-              <label for="visitSymptoms">Station Number</label>
-              <input type="text" class="form-control" id="mbStation" placeholder="">
-            </div>
-            <div class="form-group">
-              <label for="visitSymptoms">Active Volunteer?</label>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="mbStatus">
-                <label class="form-check-label" for="defaultCheck1">
-                  Yes
-                </label>
-              </div>
-            </div>
-          <button type="submit" class="btn btn-primary">Update Record</button>
-          <button type="submit" class="btn btn-primary">Delete Record</button>
-        </form>
-        </div>
-      </div>
-    </div>
     <br>
     <br>
     <br>
