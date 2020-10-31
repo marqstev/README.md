@@ -7,27 +7,19 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-// Here  'INSERT INTO People (firstName, lastName, address, city, state, zipCode, email, primaryPhoneNumber, dob, startDate, gender, officialPosition, radioNumber, stationNumber, isActive)
-// Here  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+'INSERT INTO People (firstName, lastName, email, radioNumber, stationNumber)
+VALUES (?, ?, ?, ?, ?)'
 );
 
 $stmt->execute([
   //Here down
   $_POST['firstName'],
   $_POST['lastName'],
-  $_POST['address'],
-  $_POST['city'],
-  $_POST['state'],
-  $_POST['zipCode'],
   $_POST['email'],
-  $_POST['primaryPhoneNumber'],
   $_POST['dob'],
-  $_POST['startDate'],
-  $_POST['gender'],
-  $_POST['officialPosition'],
   $_POST['radioNumber'],
   $_POST['stationNumber'],
-  $_POST['isActive']
+
 ]);
 
 // If needed, get auto-generated PK from DB
