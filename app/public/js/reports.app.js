@@ -1,12 +1,12 @@
 var app = new Vue({
-    el: '#memberPage',
+    el: '#memberPage', //Here down
     data:{
       memberList: [],
       newMbForm: {}
     },
 
     methods: {
-      newMbData() {
+      newMbData() { //Here down
         return {
           firstName: "",
           lastName: "",
@@ -32,9 +32,9 @@ var app = new Vue({
 
         // TODO: Validate the data!
 
-        fetch('api/index/index_post.php', {
+        fetch('api/reports/post.php', {
           method:'POST',
-          body: JSON.stringify(this.newMbForm),
+          body: JSON.stringify(this.newMbForm), //Here
           headers: {
             "Content-Type": "application/json; charset=utf-8"
           }
@@ -43,18 +43,18 @@ var app = new Vue({
         .then( json => {
           console.log("Returned from post:", json);
           // TODO: test a result was returned!
-          this.memberList=json;
-          this.newMbForm=this.newMbData();
+          this.memberList=json; //Here
+          this.newMbForm=this.newMbData(); //Here
         });
       }
     },
 
   created (){
-    this.newMbForm=this.newMbData();
-      fetch("api/index/")
+    this.newMbForm=this.newMbData(); //Here
+      fetch("api/reports/")
       .then(response => response.json())
       .then(json => {
-        this.memberList=json;
+        this.memberList=json; //Here
         console.log(json)}
   );
 }
