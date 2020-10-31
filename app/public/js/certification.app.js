@@ -1,24 +1,24 @@
 var app = new Vue({
-  el: '#certifications',
+  el: '#certifications1',
   data: {
     existingcertifications: [{
       certificationId: '',
       title: '',
-      expirationDate: '',
+      experationDate: '',
       certifyingAgency: ''
     }],
 
     newcertifications: {
       certificationId: '',
       title: '',
-      expirationDate: '',
+      experationDate: '',
       certifyingAgency: ''
     }
   },
 
     methods: {
       fetchUser(){
-        fetch('api/certified/')
+        fetch('api/certified/certifications.php')
         .then(response => response.json())
         .then(json => {
           this.existingcertifications=json;
@@ -47,7 +47,7 @@ var app = new Vue({
         return {
           certificationId: '',
           title: '',
-          expirationDate: '',
+          experationDate: '',
           certifyingAgency: ''
         }
       }

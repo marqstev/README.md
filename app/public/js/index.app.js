@@ -17,7 +17,13 @@ var app = new Vue({
           state: "",
           zipCode: "",
           email: "",
-          primaryPhoneNumber: ""
+          primaryPhoneNumber: "",
+          startDate: "",
+          officialPosition: "",
+          radioNumber: "",
+          stationNumber: "",
+          isActive: ""
+
         }
       },
 
@@ -44,6 +50,7 @@ var app = new Vue({
     },
 
   created (){
+    this.newMbForm=this.newMbData();
       fetch("api/index/")
       .then(response => response.json())
       .then(json => {

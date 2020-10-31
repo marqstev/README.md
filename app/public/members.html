@@ -93,32 +93,32 @@
           </div>
           <div class="form-group">
             <label for="visitSymptoms">Start Date</label>
-            <input type="text" class="form-control" id="mbStartDate" placeholder="">
+            <input type="text" v-model="newMbForm.startDate" class="form-control" id="mbStartDate" placeholder="">
           </div>
           <div class="form-group">
             <label for="visitSymptoms">Position</label>
-            <input type="text" class="form-control" id="mbPosition" placeholder="">
+            <input type="text" v-model="newMbForm.officialPosition" class="form-control" id="mbPosition" placeholder="">
           </div>
           <div class="form-group">
             <label for="visitSymptoms">Radio Number</label>
-            <input type="text" class="form-control" id="mbRadio" placeholder="">
+            <input type="text" v-model="newMbForm.radioNumber" class="form-control" id="mbRadio" placeholder="">
           </div>
           <div class="form-group">
             <label for="visitSymptoms">Station Number</label>
-            <input type="text" class="form-control" id="mbStation" placeholder="">
+            <input type="text" v-model="newMbForm.stationNumber" class="form-control" id="mbStation" placeholder="">
           </div>
           <div class="form-group">
             <label for="visitSymptoms">Active Volunteer?</label>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="mbStatus">
+              <input v-model="newMbForm.isActive" class="form-check-input" type="checkbox" value="" id="mbStatus">
               <label class="form-check-label" for="defaultCheck1">
                 Yes
               </label>
             </div>
           </div>
           <button type="submit" class="btn btn-primary" id="createNewMember">Create</button>
-          <button type="submit" class="btn btn-primary" id="updateMember">Update Record</button>
-          <button type="submit" class="btn btn-primary" id="deleteMember">Delete Record</button>
+          <button class="btn btn-primary" id="updateMember">Update Record</button>
+          <button class="btn btn-primary" id="deleteMember">Delete Record</button>
 
           </form>
 
@@ -127,18 +127,19 @@
         </div>
         <!-- middle column -->
         <div class="row">
-          <h3>List of All Members</h3>
+          <h3>List of All Members</h3> <br>
 
           <div v-on:click="activeMb = member">
             <table class="table" id="memberTable">
               <thead>
                 <tr>
-                  <th scope="col">Id</th>
+                  <th scope="col">#</th>
                   <th scope="col">First Name</th>
                   <th scope="col">Last Name</th>
                   <th scope="col">Station Number</th>
                   <th scope="col">Radio Number</th>
-                  <th scope="col">Radio Number</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Position</th>
                 </tr>
               </thead>
               <tbody class="members" id="memberTableBody">
@@ -149,6 +150,7 @@
                 <td class="stationNumber">{{member.stationNumber}}</td>
                 <td class="radioNumber">{{member.radioNumber}}</td>
                 <td class="email">{{member.email}}</td>
+                <td class="email">{{member.officialPosition}}</td>
               </tr>
               </tbody>
             </table>
