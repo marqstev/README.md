@@ -42,7 +42,7 @@
         </nav><br>
 
     <div class="container-fluid" id="memberPage">
-      <div class="row">
+      <div class="col-6">
         <div id="cardPaneLeft" class="col-6 cardPane cardPaneLeft">
           <form id="newMbForm" method="post" v-on:submit.prevent="handleNewMbForm">
             <h3>Create New Member Record</h3>
@@ -108,25 +108,20 @@
             <input type="text" v-model="newMbForm.stationNumber" class="form-control" id="mbStation" placeholder="">
           </div>
           <div class="form-group">
-            <label for="visitSymptoms">Active Volunteer?</label>
-            <div class="form-check">
-              <input v-model="newMbForm.isActive" class="form-check-input" type="checkbox" value="" id="mbStatus">
-              <label class="form-check-label" for="defaultCheck1">
-                Yes
-              </label>
-            </div>
+            <label for="newMbIsActive">Active Volunteer?</label>
+            <select class="form-control" v-model="newMbForm.isActive" id="newMbIsActive">
+              <option value="Y">Yes</option>
+              <option value="N">No</option>
+            </select>
           </div>
           <button type="submit" class="btn btn-primary" id="createNewMember">Create</button>
           <button class="btn btn-primary" id="updateMember">Update Record</button>
           <button class="btn btn-primary" id="deleteMember">Delete Record</button>
-
           </form>
-
-          <!-- <button v-on:click="yell()">Click Me!</button> -->
-            </div>
+          </div>
         </div>
         <!-- middle column -->
-        <div class="row">
+        <div class="col-6" id="memberTableList">
           <h3>List of All Members</h3> <br>
 
           <div v-on:click="activeMb = member">

@@ -1,61 +1,31 @@
 var app = new Vue({
-    el: '#memberPage', //Here down
+    el: '#reportsPage', //Here down
     data:{
-      memberList: [],
-      newMbForm: {}
+      expiredList: [],
+      reportMemberList: []
     },
 
     methods: {
-      newMbData() { //Here down
-        return {
-          firstName: "",
-          lastName: "",
-          dob: "",
-          gender: "",
-          address: "",
-          city: "",
-          state: "",
-          zipCode: "",
-          email: "",
-          primaryPhoneNumber: "",
-          startDate: "",
-          officialPosition: "",
-          radioNumber: "",
-          stationNumber: "",
-          isActive: ""
-
-        }
+      fetchMember(){
+        fetch("api/reports/")
+        .then(response => response.json())
+        .then(json => {
+          this.reportMemberList=json; //Here
+          console.log(json)
+        });
       },
-
-      handleNewMbForm( evt ) {
-        // evt.preventDefault();  // Redundant w/ Vue's submit.prevent
-
-        // TODO: Validate the data!
-
-        fetch('api/reports/post.php', {
-          method:'POST',
-          body: JSON.stringify(this.newMbForm), //Here
-          headers: {
-            "Content-Type": "application/json; charset=utf-8"
-          }
-        })
-        .then( response => response.json() )
-        .then( json => {
-          console.log("Returned from post:", json);
-          // TODO: test a result was returned!
-          this.memberList=json; //Here
-          this.newMbForm=this.newMbData(); //Here
+      fetchExpired(){
+        fetch("api/reports/")
+        .then(response => response.json())
+        .then(json => {
+          this.expiredList=json; //Here
+          console.log(json)
         });
       }
     },
 
   created (){
-    this.newMbForm=this.newMbData(); //Here
-      fetch("api/reports/")
-      .then(response => response.json())
-      .then(json => {
-        this.memberList=json; //Here
-        console.log(json)}
-  );
+      this.fetchMember();
+      this.fetchExpired();
 }
-});
+})
