@@ -1,30 +1,40 @@
 var app = new Vue({
-    el: '#reportsPage',
+    el: '#memberPage', //Here down
     data:{
-      reportsList: [],
-      newReportsForm: {}
+      memberList: [],
+      newMbForm: {}
     },
 
     methods: {
-      newListData() {
+      newMbData() { //Here down
         return {
           firstName: "",
           lastName: "",
+          dob: "",
+          gender: "",
+          address: "",
+          city: "",
+          state: "",
+          zipCode: "",
           email: "",
+          primaryPhoneNumber: "",
+          startDate: "",
+          officialPosition: "",
           radioNumber: "",
           stationNumber: "",
+          isActive: ""
 
         }
       },
 
-      handleNewReportsForm( evt ) {
+      handleNewMbForm( evt ) {
         // evt.preventDefault();  // Redundant w/ Vue's submit.prevent
 
         // TODO: Validate the data!
 
-        fetch('api/index/index_post.php', {
+        fetch('api/reports/post.php', {
           method:'POST',
-          body: JSON.stringify(this.newReportsForm),
+          body: JSON.stringify(this.newMbForm), //Here
           headers: {
             "Content-Type": "application/json; charset=utf-8"
           }
@@ -33,18 +43,18 @@ var app = new Vue({
         .then( json => {
           console.log("Returned from post:", json);
           // TODO: test a result was returned!
-          this.reportsList=json;
-          this.newReportsForm=this.newReportsData();
+          this.memberList=json; //Here
+          this.newMbForm=this.newMbData(); //Here
         });
       }
     },
 
   created (){
-    this.newReportsForm=this.newReportsData();
-      fetch("api/index/")
+    this.newMbForm=this.newMbData(); //Here
+      fetch("api/reports/")
       .then(response => response.json())
       .then(json => {
-        this.reportsList=json;
+        this.memberList=json; //Here
         console.log(json)}
   );
 }

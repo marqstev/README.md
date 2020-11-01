@@ -7,14 +7,18 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'INSERT INTO People (loginEmail, loginPassword)
-  VALUES (?, ?)'
+'INSERT INTO People (firstName, lastName, email, radioNumber, stationNumber)
+VALUES (?, ?, ?, ?, ?)'
 );
 
 $stmt->execute([
-  $_POST['loginEmail'],
-  $_POST['loginPassword']
-
+  //Here down
+  $_POST['firstName'],
+  $_POST['lastName'],
+  $_POST['email'],
+  $_POST['dob'],
+  $_POST['radioNumber'],
+  $_POST['stationNumber'],
 
 ]);
 
@@ -25,4 +29,4 @@ $stmt->execute([
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
 header('HTTP/1.1 303 See Other');
-header('Location: ../login/');
+header('Location: ../reports/');
