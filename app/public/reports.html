@@ -41,11 +41,10 @@
         </div>
         </nav><br>
 
-      <div class="reports">
+      <div class="reports" id="reportsPage">
         <h3>Report of Expired Certifications</h3> <br>
 
-        <div class="reportTable">
-          <div v-on:click="activeReport = expired">
+        <div v-on:click="activeReport = expired">
             <table class="table" id="reportTableExpired">
               <thead>
                 <tr>
@@ -57,17 +56,16 @@
                 </tr>
               </thead>
               <tbody class="reports" id="reportTableExpiredBody">
-                <tr v-for="member in memberList">
+                <tr v-for="member in expiredList">
                 <td class="firstName">{{member.firstName}}</td>
                 <td class="lastName">{{member.lastName}}</td>
-                <td class="stationNumber">{{member.stationNumber}}</td>
-                <td class="radioNumber">{{member.radioNumber}}</td>
+                <td class="certification">{{}}</td>
+                <td class="expirationDate">{{}}</td>
                 <td class="email">{{member.email}}</td>
               </tr>
               </tbody>
             </table>
           </div>
-        </div>
 
         <br>
         <br>
@@ -75,7 +73,6 @@
 
         <h3>Report of Members</h3> <br>
 
-        <div class="ReportTable">
           <div v-on:click="activeReport = member">
             <table class="table" id="reportTableMember">
               <thead>
@@ -87,8 +84,8 @@
                   <th scope="col">Email</th>
                 </tr>
               </thead>
-              <tbody class="reports" id="reportTableBodyMember">
-                <tr v-for="member in memberList">
+              <tbody class="reports" id="reportTableMemberBody">
+                <tr v-for="member in reportMemberList">
                 <td class="firstName">{{member.firstName}}</td>
                 <td class="lastName">{{member.lastName}}</td>
                 <td class="stationNumber">{{member.stationNumber}}</td>
@@ -99,7 +96,6 @@
             </table>
           </div>
         </div>
-      </div>
 
 
 
@@ -108,8 +104,10 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="js/reports.app.js"></script>
+    <script src="js/tablesort.min.js"></script>
     <script>
-      new Tablesort(document.getElementById('sortedTable'));
+      new Tablesort(document.getElementById('reportTableExpired'));
     </script>
   </body>
 </html>
