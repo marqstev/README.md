@@ -1,30 +1,39 @@
 var app = new Vue({
-    el: '#reportsPage',
+    el: '#memberPage',
     data:{
-      reportsList: [],
-      newReportsForm: {}
+      memberList: [],
+      newMbForm: {}
     },
 
     methods: {
-      newListData() {
+      newMbData() {
         return {
           firstName: "",
           lastName: "",
+          dob: "",
+          gender: "",
+          address: "",
+          city: "",
+          state: "",
+          zipCode: "",
           email: "",
+          primaryPhoneNumber: "",
+          startDate: "",
+          officialPosition: "",
           radioNumber: "",
           stationNumber: "",
-
+          isActive: ""
         }
       },
 
-      handleNewReportsForm( evt ) {
+      handleNewMbForm( evt ) {
         // evt.preventDefault();  // Redundant w/ Vue's submit.prevent
 
         // TODO: Validate the data!
 
         fetch('api/index/index_post.php', {
           method:'POST',
-          body: JSON.stringify(this.newReportsForm),
+          body: JSON.stringify(this.newMbForm),
           headers: {
             "Content-Type": "application/json; charset=utf-8"
           }
@@ -33,18 +42,18 @@ var app = new Vue({
         .then( json => {
           console.log("Returned from post:", json);
           // TODO: test a result was returned!
-          this.reportsList=json;
-          this.newReportsForm=this.newReportsData();
+          this.memberList=json;
+          this.newMbForm=this.newMbData();
         });
       }
     },
 
   created (){
-    this.newReportsForm=this.newReportsData();
+    this.newMbForm=this.newMbData();
       fetch("api/index/")
       .then(response => response.json())
       .then(json => {
-        this.reportsList=json;
+        this.memberList=json;
         console.log(json)}
   );
 }
