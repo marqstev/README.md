@@ -7,7 +7,7 @@ var app = new Vue({
 
     methods: {
       fetchMember(){
-        fetch("api/reports/")
+        fetch("api/index/")
         .then(response => response.json())
         .then(json => {
           this.reportMemberList=json; //Here
