@@ -47,10 +47,10 @@ body{
   padding: 10px 25px;
 }
 
-#newMbForm {
+#newMbForm, #reportTableMember {
   float: left;
 }
 
-#memberTableList {
+#memberTableList, #reportTableSelectedMember {
   float: right;
 }

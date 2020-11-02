@@ -121,7 +121,7 @@
           </div>
         </div>
         <!-- middle column -->
-        <div class="col-6" id="memberTableList">
+        <div class="col-8" id="memberTableList">
           <h3>List of All Members</h3> <br>
 
           <div v-on:click="activeMb = member">
@@ -145,7 +145,9 @@
                 <td class="stationNumber">{{member.stationNumber}}</td>
                 <td class="radioNumber">{{member.radioNumber}}</td>
                 <td class="email">{{member.email}}</td>
-                <td class="email">{{member.officialPosition}}</td>
+                <td class="officalPosition">{{member.officialPosition}}</td>
+                <td><button class="btn btn-primary btn-xs" id="updateMember">Update Record</button></td>
+                <td><button class="btn btn-danger btn-xs delete" id="deleteMember" @click="deleteMember(row.id)">Delete</button></td>
               </tr>
               </tbody>
             </table>

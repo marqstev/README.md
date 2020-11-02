@@ -45,6 +45,9 @@ var app = new Vue({
           this.memberList=json;
           this.newMbForm=this.newMbData();
         });
+      },
+      deleteMember:function(memberID){
+        if(confirm("Are you sure you want to delete this record?"))
       }
     },
 

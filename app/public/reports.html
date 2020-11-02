@@ -73,7 +73,7 @@
 
         <h3>Report of Members</h3> <br>
 
-
+        <div class="row">
           <div v-on:click="activeReport = member">
 
             <table class="table" id="reportTableMember">
@@ -97,6 +97,31 @@
               </tr>
               </tbody>
             </table>
+          </div>
+          <div class="col-1">
+            </div>
+          <div v-on:click="activeReport = member" class="col-5">
+
+            <table class="table" id="reportTableSelectedMember">
+              <thead>
+                <tr>
+                  <th scope="col">MemberID</th>
+                  <th scope="col">Certificate</th>
+                  <th scope="col">Date Recieved</th>
+                  <th scope="col">Expiration Status</th>
+                </tr>
+              </thead>
+
+              <tbody class="reports" id="reportTableMemberBody">
+                <tr v-for="certficiation in certificationList">
+                <td class="certifiedMemberID">{{certficiation.certifiedMemberID}}</td>
+                <td class="certificationTitle">{{certficiation.certificationTitle}}</td>
+                <td class="certificationDate">{{certficiation.certificationDate}}</td>
+                <td class="expirationStatus">{{certficiation.expirationStatus}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
           </div>
         </div>
 
