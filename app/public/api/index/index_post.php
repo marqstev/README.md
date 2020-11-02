@@ -10,6 +10,28 @@ $stmt = $db->prepare(
   'INSERT INTO People (firstName, lastName, address, city, state, zipCode, email, primaryPhoneNumber, dob, startDate, gender, officialPosition, radioNumber, stationNumber, isActive)
   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
 );
+if(isset($_POST['memberID']){
+  $stmt = $db->prepare(
+    'UPDATE People SET
+      firstName = ?
+      lastName = ?,
+      address = ?,
+      city = ?,
+      state = ?,
+      zipCode = ?,
+      email = ?,
+      primaryPhoneNumber = ?
+      dob = ?,
+      startDate = ?,
+      gender = ?,
+      officialPosition = ?,
+      radioNumber = ?,
+      stationNumber = ?,
+      isActive = ?
+      WHERE memberID = ?'
+    );
+
+})
 
 $stmt->execute([
   
