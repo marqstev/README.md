@@ -2,7 +2,9 @@ var app = new Vue({
     el: '#memberPage',
     data:{
       memberList: [],
-      newMbForm: {}
+      newMbForm: {},
+      updateMbForm: {},
+      memberRecord: {}
     },
 
     methods: {
@@ -46,8 +48,43 @@ var app = new Vue({
           this.newMbForm=this.newMbData();
         });
       },
-      deleteMember:function(memberID){
-        if(confirm("Are you sure you want to delete this record?"))
+
+      handleUpdateMbForm( evt ) {
+        // evt.preventDefault();  // Redundant w/ Vue's submit.prevent
+        // TODO: Validate the data!
+
+        fetch('api/index/update.php', {
+          method:'POST',
+          body: JSON.stringify(this.updateMbForm),
+          headers: {
+            "Content-Type": "application/json; charset=utf-8"
+          }
+        })
+        .then( response => response.json() )
+        .then( json => {
+          console.log("Returned from post:", json);
+          // TODO: test a result was returned!
+          this.memberList=json;
+          this.updateMbForm=this.newMbData();
+        });
+      },
+
+      deleteMember(){
+        fetch('api/index/delete.php', {
+          method:'POST',
+          body: JSON.stringify(this.memberRecord),
+          headers: {
+            "Content-Type": "application/json; charset=utf-8"
+          }
+        })
+        .then (response => response.json())
+        .then ( json => {memberPage.memberList = json})
+        .catch (err => {
+          console.error('error');
+          console.error(err);
+        })
+        this.memberRecord=this.newMbData();
+
       }
     },
 

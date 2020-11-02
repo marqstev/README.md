@@ -34,13 +34,6 @@ body{
   text-align: center;
 }
 
-.memberCard {
-  margin: 4px;
-  padding: 4px 8px;
-  border: 1px solid darkred;
-  border-radius: 5px;
-  background-color: white;
-}
 
 .reports {
   margin: 25px;
