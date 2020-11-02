@@ -115,16 +115,20 @@
             </select>
           </div>
           <button type="submit" class="btn btn-primary" id="createNewMember">Create</button>
-          <button class="btn btn-primary" id="updateMember">Update Record</button>
-          <button class="btn btn-primary" id="deleteMember">Delete Record</button>
           </form>
+          <br>
           </div>
         </div>
         <!-- middle column -->
         <div class="col-8" id="memberTableList">
           <h3>List of All Members</h3> <br>
-
-          <div v-on:click="activeMb = member">
+          <div>
+            <form method="post" v-on:submit="deleteMember" id="deleteMemberForm">
+              <input type = 'number' v-model="memberRecord.memberId">
+              <button type="submit" class="btn btn-danger" id="deleteMemberButton">Delete</button>
+            </form>
+          </div>
+          <div>
             <table class="table" id="memberTable">
               <thead>
                 <tr>
@@ -147,12 +151,11 @@
                 <td class="email">{{member.email}}</td>
                 <td class="officalPosition">{{member.officialPosition}}</td>
                 <td><button class="btn btn-primary btn-xs" id="updateMember">Update Record</button></td>
-                <td><button class="btn btn-danger btn-xs delete" id="deleteMember" @click="deleteMember(row.id)">Delete</button></td>
-              </tr>
               </tbody>
             </table>
           </div>
         </div>
+
       </div>
     <br>
     <br>

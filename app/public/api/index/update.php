@@ -7,8 +7,7 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'INSERT INTO People (firstName, lastName, address, city, state, zipCode, email, primaryPhoneNumber, dob, startDate, gender, officialPosition, radioNumber, stationNumber, isActive)
-  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+  'UPDATE People SET firstName=?, lastName=?, address=?, city=?, state=?, zipCode=?, email=?, primaryPhoneNumber=?, dob=?, startDate=?, gender=?, officialPosition=?, radioNumber=?, stationNumber=?, isActive=?'
 );
 
 $stmt->execute([
